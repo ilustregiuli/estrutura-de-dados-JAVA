@@ -9,7 +9,7 @@ public class Fila {
 	}
 	
 	public void enqueue (Object obj) {		// método para adicionar na fila, recebe um novo "nó"
-		No novoNo = new No();
+		No novoNo = new No(obj);
 		novoNo.setProximo(this.referenciaEntrada); // o próximo nó de "novo nó" vai receber a referencia de entrada
 		this.referenciaEntrada = novoNo; // e a referencia de entrada, será esse novo nó
 	}
