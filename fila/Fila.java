@@ -1,21 +1,21 @@
 package fila;
 
-public class Fila {
+public class Fila<T> {
 	
-	private No referenciaEntrada;
+	private No<T> referenciaEntrada;
 	
 	public Fila() {
 		this.referenciaEntrada = null;
 	}
 	
-	public void enqueue (Object obj) {		// método para adicionar na fila, recebe um novo "nó"
-		No novoNo = new No(obj);
+	public void enqueue (T object) {		// método para adicionar na fila, recebe um novo "nó"
+		No novoNo = new No(object);
 		novoNo.setProximo(this.referenciaEntrada); // o próximo nó de "novo nó" vai receber a referencia de entrada
 		this.referenciaEntrada = novoNo; // e a referencia de entrada, será esse novo nó
 	}
 	
-	public Object first() {
-		if(!isEmpty()) {
+	public T first() {
+		if(!this.isEmpty()) {
 			No primeiroNo = this.referenciaEntrada;
 			while(true) {
 				if(primeiroNo.getProximo() != null) {
@@ -24,14 +24,15 @@ public class Fila {
 					break;
 				}
 			}
-			return primeiroNo.getObject();
-		} else {
-			return null;
-		}
+			return (T) primeiroNo.getObject();
+		} 
+		
+		return null;
+		
 		
 	}
 	
-	public Object dequeue() {
+	public T dequeue() {
 		if(!this.isEmpty()) {	// verifica se a fila está vazia
 			No primeiroNo = this.referenciaEntrada;	// atribui a ref. de entrada como "Primeiro nó"
 			No auxiliarNo = this.referenciaEntrada;	// atribui uma copia de ref. de entrada
@@ -44,10 +45,10 @@ public class Fila {
 					break;
 				}
 			}
-			return primeiroNo.getObject();
-		} else {
-			return null;
-		}
+			return (T) primeiroNo.getObject();
+		} 
+		
+		return null;
 		
 	}
 	

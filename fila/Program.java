@@ -4,8 +4,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		Fila minhaFila = new Fila();
-		
+		Fila<String> minhaFila = new Fila<>();
 		minhaFila.enqueue("primeiro");
 		minhaFila.enqueue("segundo");
 		minhaFila.enqueue("terceiro");
@@ -17,7 +16,7 @@ public class Program {
 		
 		System.out.println(minhaFila);
 		
-		minhaFila.enqueue(new No("último"));
+		minhaFila.enqueue("último");
 		
 		System.out.println(minhaFila);
 		

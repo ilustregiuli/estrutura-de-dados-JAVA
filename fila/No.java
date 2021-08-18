@@ -1,14 +1,14 @@
 package fila;
 
-public class No {
+public class No<T> {
 
-	private Object object;
-	private No proximo;
+	private T object;
+	private No<T> proximo;
 	
 	public No() {	
 	}
 
-	public No(Object object) {
+	public No(T object) {
 		this.object = object;
 		this.proximo = null;
 	}
@@ -17,7 +17,7 @@ public class No {
 		return object;
 	}
 
-	public void setObject(Object object) {
+	public void setObject(T object) {
 		this.object = object;
 	}
 
